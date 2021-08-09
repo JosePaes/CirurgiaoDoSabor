@@ -2,39 +2,44 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('pizzas', { 
+    await queryInterface.createTable('enderecos', {  
       id: {
         type: Sequelize.INTEGER,
-        primaryKry: true,
+        primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
-      nome:{
+      zipcode:{
         type: Sequelize.STRING,
         allowNull: false
       },
-      ingredientes:{
+      rua:{
         type: Sequelize.STRING,
         allowNull: false
       },
-      preco:{
-        type: Sequelize.DECIMAL,
+      bairro:{
+        type: Sequelize.STRING,
         allowNull: false
       },
-      created_at:{
-        type: Sequelize.DATE,
+      cidade:{
+        type: Sequelize.STRING,
         allowNull: false
       },
-      updated_at:{
-        type: Sequelize.DATE,
+      estado:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      pais:{
+        type: Sequelize.STRING,
         allowNull: false
       }
+
     });
      
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('pizzas');
-     
+    await queryInterface.dropTable('enderecos');
+    
   }
 };
